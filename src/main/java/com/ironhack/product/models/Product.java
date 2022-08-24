@@ -12,11 +12,11 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @DynamicUpdate
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
@@ -32,9 +32,38 @@ public class Product {
     //@NotNull(message = "A category must be given")
     private Category category;
     //@JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate launchDate;
 
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
 }

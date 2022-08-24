@@ -38,8 +38,8 @@ public class ProductController  {
         return productService.save(product);
     }
 
-    @PatchMapping("/save-product")
-    @ResponseStatus(value = HttpStatus.OK)
+    @PostMapping("/save-product")
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Product patchProduct(@RequestBody Product product) {
         return productService.save(product);
     }
