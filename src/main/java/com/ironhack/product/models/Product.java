@@ -1,5 +1,6 @@
 package com.ironhack.product.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ironhack.product.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @DynamicUpdate
@@ -24,15 +26,15 @@ public class Product {
     private Long id;
     //@NotEmpty(message = "Name must be set to create a product")
     private String name;
-    @Digits(integer = 6, fraction = 2)
-    @DecimalMin(value = "0.0", message = "Too Low")
-    @DecimalMax(value = "1000.0", message = "Too high")
+    //@Digits(integer = 6, fraction = 2)
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     //@NotNull(message = "A category must be given")
     private Category category;
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Department department;
+    //@JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate launchDate;
+
+
+
 
 }
